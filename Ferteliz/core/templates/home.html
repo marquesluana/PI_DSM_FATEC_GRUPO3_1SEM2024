@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/home.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    {% block header %}
+    <header>
+        <div class="header-container">
+            <div class="header-leftside">
+                <img src="{% static 'imgs/logo.png' %}" class="header_logo">
+                <div class="header_link-container"> 
+                <a href="" class="header_link-1">Início</a>
+                <a href="" class="header_link-2">Fale conosco</a>
+                <a href="" class="header_link-3">Sobre nós</a>
+                </div>
+            </div>
+        <div class="header_user-section">
+            <a href="" class="header_signin-link">Login</a>
+            <button class="header_signup-btn">cadastre-se</button>
+        </div>
+    </div>
+    </header>
+    {% endblock %}
+
+    {% block main %}
+    <main>
+        <div class="Ferteliz_main-container">
+            <h1 class="Ferteliz-text"></h1>
+        </div>
+    </main>
+
+    {% endblock %}
+
+
+    {% block footer %}
+    <footer></footer>
+
+    {% endblock %}
+
+    
+</body>
+</html>
