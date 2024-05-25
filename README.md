@@ -21,9 +21,3 @@ Repositório utilizado para o Projeto Interdisciplinar do 1º semestre de 2024 d
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" width="50px">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg" width="50px">
 </div>
-
-
-### Execute a aplicação em modo de desenvolvimento
-$ npm run dev:server
-
-### O servidor inciará na porta:3333 - acesse <http://localhost:3333>-->
