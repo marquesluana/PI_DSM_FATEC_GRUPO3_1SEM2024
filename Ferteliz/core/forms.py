@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import Product, User
 
 class UserForm(UserCreationForm):
     class Meta:
@@ -13,6 +13,11 @@ class UserForm(UserCreationForm):
         if commit:
             user.save()
         return user
+    
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['name', 'description', 'price']
 
 '''
 class UserForm(forms.ModelForm):

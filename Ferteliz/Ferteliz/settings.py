@@ -10,8 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-import os
 from pathlib import Path
+import os
+import pymongo
+from django.utils.translation import gettext_lazy as _
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,21 +52,22 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = 'Ferteliz.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
@@ -81,6 +85,24 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+MONGODB_SETTINGS = {
+    'db': os.environ.get('MONGODB_DB', 'Ferteliz_DataBase'),
+    'username': os.environ.get('MONGODB_USER', ''),
+    'password': os.environ.get('MONGODB_PASS', ''),
+    'host': os.environ.get('MONGODB_HOST', 'localhost'),
+    'port': int(os.environ.get('MONGODB_PORT', 27017)),
+    'authentication_source': 'admin'
+}
+
+client = pymongo.MongoClient(
+    host=MONGODB_SETTINGS['host'],
+    port=MONGODB_SETTINGS['port'],
+    username=MONGODB_SETTINGS['username'],
+    password=MONGODB_SETTINGS['password'],
+    authSource=MONGODB_SETTINGS['authentication_source']
+)
+db = client[MONGODB_SETTINGS['db']]
 
 
 # Password validation
@@ -107,6 +129,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+LANGUAGES = [
+    ("en", _("English")),
+    ("pt", _("Portuguese")),
+]
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -132,3 +159,10 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core.User'
+
+APPEND_SLASH = True
+
+# Caso o usuário nao esteja logado
+LOGIN_URL = 'core/register'
+
+LOGINREDIRECT_URL = 'core/index'
