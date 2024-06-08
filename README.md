@@ -21,3 +21,85 @@ Repositório utilizado para o Projeto Interdisciplinar do 1º semestre de 2024 d
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" width="50px">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg" width="50px">
 </div>
+
+# COMO RODAR ESSE PROJETO?
+## Pré-requisitos
+
+Certifique-se de ter os seguintes softwares instalados em sua máquina:
+
+- [Python](https://www.python.org/downloads/) (versão 3.x)
+- [pip](https://pip.pypa.io/en/stable/installation/)
+- [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html)
+- [Git](https://git-scm.com/downloads)
+
+## Clonando o Repositório
+
+Para clonar o repositório, execute o seguinte comando no seu terminal:
+
+    git clone https://github.com/marquesluana/PI_DSM_FATEC_GRUPO3_1SEM2024.git
+
+## Configurando o Ambiente Virtual
+
+- Navegue até o diretório do projeto:
+
+      cd ferteliz
+
+- Crie um ambiente virtual:
+
+      python -m venv venv
+
+- Ative o ambiente virtual:
+  
+  No Windows:
+
+      venv\Scripts\activate
+
+  No macOS e Linux:
+
+      source venv/bin/activate
+
+## Instalando as Dependências
+
+- Com o ambiente virtual ativado, instale as dependências necessárias:
+
+      pip install -r requirements.txt
+
+## Configurando o Banco de Dados
+
+- Aplique as migrações do banco de dados:
+
+      python manage.py migrate
+
+- (Opcional) Crie um superusuário para acessar o admin do Django:
+
+      python manage.py createsuperuser
+
+## Executando o Servidor de Desenvolvimento
+
+- Para iniciar o servidor de desenvolvimento, execute:
+
+      python manage.py runserver
+  
+O servidor estará disponível em http://127.0.0.1:8000/
+
+## Testes
+
+Para rodar os testes do projeto, execute:
+
+    python manage.py test
+
+## Estrutura do Projeto
+
+Uma breve descrição da estrutura dos diretórios e arquivos principais do projeto.
+
+nome-do-repositorio/
+│
+├── manage.py
+├── Ferteliz/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── ...
+├── requirements.txt
+└── ...
