@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles/cadastroMenu.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary page-nav">
+        <div class="container-fluid page-navbar">
+          <a class="navbar-brand" href="#"><img src="{% static 'imgs/logo.png' %}" alt="Logo Ferteliz" class="brand-image" ></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item right-border navbar-item1">
+                <a class="nav-link" aria-current="page" href="{% url 'home' %}">Início</a>
+              </li>
+              <li class="nav-item right-border navbar-item2">
+                <a class="nav-link" href="#">Fale conosco</a>
+              </li>
+              <li class="nav-item navbar-item3">
+                <a class="nav-link" href="#">Sobre nós</a>
+              </li>
+
+              <div class="nav-user-container">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Logar</a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-warning btn-cadastro" href="{% url 'cadastroMenu' %}">cadastre-se</a>
+                </li>
+              </div>
+
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <main>
+        <div class="content-container">
+        <div class="container page-tittle-container">
+          <h1>Bem-vindo, clique na opção que deseja se cadastrar</h1>
+        </div>
+
+        <div class="button-group">
+          <a href="{% url 'cadastroCliente' %}" class="btn btn-success">Quero ser cliente</a>
+          <a href="{% url 'cadastroVendedor' %}" class="btn btn-success">Quero ser vendedor</a>
+        </div>
+      </div>
+      </main>
+
+      <footer>
+        <div class=" footer-container">
+          <span class="copyright">© 2024 Ferteliz. Todos os direitos reservados.</span>
+    
+          <div class="footer-contact_container">
+          <span>Telefone: (19) 9986-4556 </span>
+          <span>Email: Ferteliz.contato@gmail.com</span>
+          </div>
+    
+          <div class="footer-icon_container">
+          <img src="{% static 'imgs/insta-icon.svg' %}" alt="instagram">
+          <img src="{% static 'imgs/face-icon.svg' %}" alt="facebook">
+          <img src="{% static 'imgs/linkedin-icon.svg' %}" alt="linkedin">
+        </div>
+        </div>
+      </footer>
+</body>
+</html>
