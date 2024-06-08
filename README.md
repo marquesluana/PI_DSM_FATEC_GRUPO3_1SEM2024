@@ -7,7 +7,7 @@ Repositório utilizado para o Projeto Interdisciplinar do 1º semestre de 2024 d
 ## PARTICIPANTES:
 - [Leandro Alves Rodirgues](https://github.com/)<br>
 - [Luana Marques](https://github.com/marquesluana)<br>
-- [Lucas Fernando Arantes](https://github.com/)<br>
+- [Lucas Fernando Arantes](https://github.com/Arantees)<br>
 - [Lucas Ferreira](https://github.com/)<br>
 - [Lucas Luiz Assis](https://github.com/Luhcyy)<br>
 - [Maikon Gino](https://github.com/MaikonGino)<br>
@@ -62,6 +62,8 @@ Para clonar o repositório, execute o seguinte comando no seu terminal:
 
 - Com o ambiente virtual ativado, instale as dependências necessárias:
 
+      pip install pymongo
+      python -m pip install Pillow
       pip install -r requirements.txt
 
 ## Configurando o Banco de Dados
