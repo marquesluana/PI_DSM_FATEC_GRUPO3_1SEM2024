@@ -62,6 +62,8 @@ Para clonar o repositório, execute o seguinte comando no seu terminal:
 
 - Com o ambiente virtual ativado, instale as dependências necessárias:
 
+      pip install pymongo
+      python -m pip install Pillow
       pip install -r requirements.txt
 
 ## Configurando o Banco de Dados
