@@ -1,27 +1,32 @@
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
 from django.contrib.auth import login
-
+from django.urls import reverse
 from Ferteliz import settings
-from .models import Product
+from core.models import UserModel, ProductModel
 from .forms import UserForm, ProductForm
 
 def home(request):
-    return render(request, 'home.html')
+    if request.method == 'GET':
+        return render(request, 'home.html')
+    return HttpResponseRedirect(reverse('home'))
 
 def register(request):
+    print(request)
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
+            UserModel.objects.create(**form.cleaned_data)
             user = form.save()
-            login(request, user)
-            return redirect('home')
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            return redirect(reverse('home'))
     else:
         form = UserForm()
-    return render(request, 'core/register.html', {'form': form})
+        contexto = {'form': form}
+        return render(request, 'register.html', contexto)
 
 def list_products(request):
-    products = Product.objects.all()
+    products = ProductModel.objects.all()
     data = []
     for product in products:
         data.append({
@@ -33,10 +38,13 @@ def list_products(request):
 
 def add_product(request):
     if request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             # Se salvar no Django ORM:
-            # form.save()
+            #   form.save()
+            #   return HttpResponseRedirect(reverse('list_products'))
+            # else:
+            #   form = ProductForm()
 
             # Salvando diretamente no MongoDB:
             data = form.cleaned_data
@@ -52,4 +60,4 @@ def add_product(request):
             return JsonResponse({'status': 'Form is not valid'}, status=400)
     else:
         form = ProductForm()
-    return render(request, 'core/add_product.html', {'form': form})
+    return render(request, 'add_product.html', {'form': form})

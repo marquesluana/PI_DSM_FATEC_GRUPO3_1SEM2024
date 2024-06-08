@@ -23,7 +23,7 @@
             </div>
         <div class="header_user-section">
             <a href="" class="header_signin-link">Login</a>
-            <a href="{% url 'register' %}" button class="header_signup-btn">Cadastre-se</button>
+            <a href="register.html" button class="header_signup-btn">Cadastre-se</button>
         </div>
     </div>
     </header>
@@ -35,6 +35,35 @@
             <h1 class="Ferteliz-text"></h1>
         </div>
     </main>
+    <div class="container">
+        <h1>Lista de Produtos</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Imagem</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.descricao }}</td>
+                    <td>{{ produto.preco }}</td>
+                    <td>
+                        {% if produto.imagem %}
+                        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="100">
+                        {% else %}
+                        Nenhuma imagem
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     {% endblock %}
 
