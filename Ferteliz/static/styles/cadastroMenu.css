@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.page-nav {
+    padding-top: 0;
+    padding-bottom: 0;
+    
+}
+
+
+.nav-link {
+    color: #FFFFFF;
+    font-family: "Quicksand";
+    font-weight: 500;
+    font-size: 18px;
+    
+}
+
+.right-border {
+    border-right: 1px solid #FFFFFF;
+    
+}
+
+.left-margin {
+    margin-left: 15px;
+}
+
+.page-navbar {
+    height:85px;
+    background-color: #1D7249;
+    
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.brand-image {
+    height: 87px;
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: #FFFFFF;
+}
+
+.page-tittle-container{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.page-tittle-container h1 {
+    font-family: 'Poppins';
+    color: #000000;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    margin-top: 160px;
+}
+
+.button-group a {
+    font-family: 'Quicksand';
+    background-color: #1D7249;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88px;
+    width: 513px;
+    border-radius: 30px;
+    font-size: 40px;
+}
+
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 250px;
+    height: 294;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 40px 40px 0 0;
+    background-color: #353739;
+}
+
+.footer-container .copyright{
+    margin-top: 30px;
+    color: #FFFFFF;
+    font-family: 'Inter';
+}
+
+.footer-contact_container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.footer-contact_container span {
+    font-family: 'Inter';
+    color: #FFFFFF;
+    
+}
+
+.footer-icon_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.footer-icon_container img{
+    height: 57px;
+    width: 60px;
+}

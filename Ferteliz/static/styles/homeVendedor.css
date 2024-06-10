@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Adamina&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Adamina&family=Akshar:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.page-nav {
+    padding-top: 0;
+    padding-bottom: 0;
+    
+}
+/*Fonte, tamanho e cor dos elementos da navbar*/
+.nav-link {
+    color: #FFFFFF;
+    font-family: "Quicksand";
+    font-weight: 500;
+    font-size: 18px;
+    
+}
+
+/*Borda branca no navbar*/
+.right-border {
+    border-right: 1px solid #FFFFFF;
+    
+}
+/*Espaçamento dos elementos da navbar*/
+.left-margin {
+    margin-left: 15px;
+}
+/*Cor do background da navbar*/
+.page-navbar {
+    height:85px;
+    background-color: #1D7249;
+}
+
+/*Ajuste no posicionamento da logo na navbar*/
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+/*Tamanho da logo na navbar*/
+.brand-image {
+    height: 87px;
+    
+}
+/*Ajuste no posicionamento do veector*/
+.navbar-brand-vector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+/*Tamanho do vector*/
+.brand-image-vector {
+    height: 48px;  
+    margin-left: 900px;
+    margin-top: -50px;
+    position:absolute;
+}
+
+/*Main*/
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: #FFFFFF;
+}
+
+/*Configurações principal do container da Ferteliz*/
+.main-page-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid 1px #254B11;
+    margin-top: 35px;
+    border-radius: 45px;
+    height: 500px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*Posicionamento do container da ferteliz para esquerda*/
+.main-container_left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px solid #254B11;
+    height: 100%;
+    width: 660px;
+    border-radius: 45px 0 0 45px;
+    background-color: white;
+}
+
+/*Estilo, borda, tamanho e propriedades da fonte "FERTELIZ"*/
+.main-container_left .left_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 154px;
+    width: 389px;
+    border: 1px solid;
+    border-radius: 35px;
+    background-color: #59B528;
+}
+
+/*Ajuste minimo na imagem da home*/
+.main-container_right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 660px;
+    padding: 0;
+}
+/*Mesmo que acima*/
+.main-container_right .right_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/*Arredondamento da imagem da home*/
+.right_container img {
+    border-radius: 0 45px 45px 0;
+    
+}
+
+/*Fonte e cor do "FERTELIZ"*/
+.main_title {
+    font-family: "Adamina";
+    color: #000000;
+}
+
+/*Controle e ajuste da seção 1 (Aqui você pode comprar...)*/
+.page-section-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/*Espaçamento da seção 1*/
+.section1-title_container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+/*Titulo da seção 1*/
+.section1-title_container h1 {
+    text-align: center;
+    color: #254B11;
+    font-family: "Poppins";
+}
+/*Paragrafo da seção 1*/
+.section1-title_container h2 {
+    text-align: center;
+    color: #000000;
+    font-family: "Poppins";
+}
+/*Titulo da seção 1*/
+.section1-title_container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+/*Paragrafo da seção 1*/
+.section1-title_container2 h1 {
+    color: #254B11;
+}
+
+/*Borda da seção dos alimentos*/
+.products-section {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid#254B11;
+    border-radius: 70px;
+    padding-top: 10px;
+    margin-top: 30px;
+    color: #254B11;
+}
+/*Titulo da seção dos alimentos*/
+.products-section span {
+    color: #254B11;
+    font-family: "Questrial";
+    font-size: 36px;
+    margin-left: 25px;
+}
+
+/*Agrupa as imagens, descriçôes e preços numa única linha*/
+.products-group {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    gap: 50px;
+}
+
+/*Ajusta a posição e o container dos alimentos*/
+.product-container {
+    padding-top: 10px;
+    align-items: center;
+    border: none;
+}
+
+/*Tamanho das imagens dos alimentos*/
+.product-container img {
+    width: 240px;
+    height: 200px;
+}
+
+/*Tamanho da descrição dos alimentos*/
+.card-body .product-title {
+    font-family: 'Questrial', sans-serif;
+    color: #254B11;
+    font-size: 25px;
+}
+
+/*Tamanho do preço dos alimentos*/
+.card-body .product-price {
+    font-family: 'Questrial', sans-serif;
+    color: #254B11;
+    font-size: 20px;
+}
+
+/*Ajustes e posicionamento da seção 2*/
+.page-section-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/*Titulo da seção 2*/
+.page-section-2 .section2-title_container {
+    color: #254B11;
+    text-align: center;
+}
+/*Agrupa as imagens, descriçôes e preços numa única linha*/
+.section2-card-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    gap: 5px;
+}
+/*Borda, fonte, alinhamento, tamanho etc, no container da seção 2*/
+.section2-card-container .card {
+    font-family: 'Quicksand';
+    padding-top: 40px;
+    align-items: center;
+    height: 320px;
+    width: 350px;
+    border: solid 1px #254B11;
+    border-radius: 45px;
+    color: #254B11;
+    text-align: center;
+    font-weight: 600;
+}
+
+/*Tamanho das imagens*/
+.section2-card-container .card img{
+    max-height: 160px;
+    max-width: 160px;
+}
+
+/*Borda, fonte, alinhamento, tamanho etc, no container da seção 3*/
+.section3-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 403px;
+    align-items: center;
+    text-align: center;
+    border: solid 1px #254B11;
+    border-radius: 40px;
+    margin-top: 80px;
+}
+/*Titulo de container da seção 3*/
+.section3-container h2{
+    color: #254B11;
+    font-size: 50px;
+    font-family: 'Akshar';
+}
+
+/*Paragrafo de container da seção 3*/
+.section3-container p{
+    color: #254B11;
+    font-family: 'Quicksand';
+    font-size: 36px;
+    margin-top: 50px;
+    font-weight: 400;
+}
+
+
+/*Configurações e ajustes de tamanho, background, borda, posicionamento etc do footer*/
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    height: 294;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 40px 40px 0 0;
+    background-color: #353739;
+}
+
+/*Cor e fonte do trecho "© 2024 Ferteliz. Todos os direitos reservados."*/
+.footer-container .copyright{
+    margin-top: 30px;
+    color: #FFFFFF;
+    font-family: 'Inter';
+}
+
+/*Espaçamento do footer*/
+.footer-contact_container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+/*Cor e fonte dos trechos "Telefone: (19) 9986-4556", "Email: Ferteliz.contato@gmail.com"*/
+.footer-contact_container span {
+    font-family: 'Inter';
+    color: #FFFFFF;
+    font-family: 'Inter';
+}
+/*Espaçamento dos icones do footer*/
+.footer-icon_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+/*Tamanho dos icones do footer*/
+.footer-icon_container img{
+    height: 57px;
+    width: 60px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .main-page-container{
+        display: none;
+    }
+}

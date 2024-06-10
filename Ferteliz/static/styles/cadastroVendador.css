@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Adamina&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Adamina&family=Akshar:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.page-nav{
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 1px solid;
+}
+
+.page-navbar{
+    height:85px;
+    background-color: #1D7249;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: #DCDDDE;
+}
+
+.main-page-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid 1px #59B528;
+    margin-top: 50px;
+    border-radius: 45px;
+    height: 500px;
+    padding-left: 0;
+}
+
+.main-container_left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px solid #59B528;
+    height: 100%;
+    width: 660px;
+    border-radius: 45px 0 0 45px;
+}
+
+.main-container_left .left_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 154px;
+    width: 389px;
+    border: 1px solid;
+    border-radius: 35px;
+    background-color: #59B528;
+}
+
+.main-container_right{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    
+}
+
+.main_title{
+    font-family: "Adamina";
+    color: #000000;
+}
+
+.page-section-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.section1-title_container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.section1-title_container h1{
+    
+ text-align: center;
+ color: #ECC345;
+ text-shadow: -1px 2px 3px rgba(0,0,0,0.96);
+-webkit-text-stroke-width: 0.8px;
+-webkit-text-stroke-color: #000000;
+font-family: "Akshar";
+letter-spacing: 3px;
+margin-top: 30px;
+}
+
+.section1-title_container h2{
+    text-align: center;
+    font-family: "Akshar";
+    letter-spacing: 3px;
+}
+
+.section1-title_container2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section1-title_container2 h1{
+    color: #1D7249;
+    -webkit-text-stroke-width: 0.8px;
+}
+
+
+.register-btn{
+    border: 1px solid;
+    border-radius: 30px;
+    width: 350px;
+    height: 40px;
+}
+
+
+/* Estilo para o botão de cadastro */
+.botao-cadastro {
+    background-color: #ECC345; /* Cor de fundo */
+    color: #ffffff; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Ajusta o padding para tornar os lados menores */
+    border-radius: 15px; /* Define as bordas arredondadas */
+    transition: background-color 0.3s ease; /* Transição suave para mudança de cor */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+/* Estilo para o botão quando o mouse está sobre ele */
+.botao-cadastro:hover {
+    background-color: #d4ab2e; /* Nova cor de fundo ao passar o mouse */
+}
+
