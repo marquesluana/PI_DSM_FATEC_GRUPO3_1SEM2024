@@ -21,8 +21,14 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('cadastroMenu', views.cadastroMenu, name='cadastroMenu'),
-    path('login', views.login, name='login'),
     path('cadastroCliente/', views.cadastroCliente, name='cadastroCliente'),
-    path('cadastroVendedor', views.cadastroVendedor, name='cadastroVendedor')
+    path('login/', views.login, name='login'),
+    path('/cadastroMenu', views.cadastroMenu, name='cadastroMenu'),
+    path('/cadastroVendedor', views.cadastroVendedor, name='cadastroVendedor'),
+    path('carrinho/', views.carrinho, name='carrinho'),
+    path('/cadastroProdutos', views.cadastroProdutos, name='cadastroProdutos'),
+    path('/homeCliente', views.homeCliente, name='homeCliente'),
+    path('/homeVendedor', views.homeVendedor, name='homeVendedor'),    
+    path('/profileVendedor', views.profileVendedor, name='profileVendedor'), 
+    path('/profileCliente', views.profileCliente, name='profileCliente')
 ]
