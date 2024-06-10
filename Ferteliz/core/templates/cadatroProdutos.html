@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles/cadastroProdutos.css' %}"> 
+    <title>Ferteliz</title>
+</head>
+<body>
+  <!-- Navbar do projeto -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary page-nav">
+    <div class="container-fluid page-navbar">
+      <a class="navbar-brand" href="#"><img src="{% static 'imgs/logo.png' %}" alt="Logo Ferteliz" class="brand-image" ></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item right-border">
+            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Início</a>
+          </li>
+          <li class="nav-item right-border left-margin">
+            <a class="nav-link" href="mailto:ferteliz.contato@gmail.com">Fale conosco</a>
+          </li>
+          <li class="nav-item left-margin">
+            <a class="nav-link" href="#SobreNos">Sobre nós</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Entrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-warning" href="{% url 'cadastroMenu' %}">Cadastre-se</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Fim da navbar do projeto -->
+
+  <main>
+    <div class="container">
+      <h1>Cadastre seu produto</h1>
+      <form>
+        <div class="mb-3">
+          <label for="product-list" class="form-label">Informe o produto:</label>
+          <input type="text" class="form-control" id="product-list" name="product-list" value="Lista de produtos">
+        </div>
+        <div class="mb-3">
+          <label for="image-upload" class="form-label">Insira a imagem:</label>
+          <input type="file" class="form-control" id="image-upload" name="image-upload" accept="image/*">
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Insira o valor:</label>
+          <input type="text" class="form-control" id="price" name="price" placeholder="R$ __,__">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Descreva seu produto:</label>
+          <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3 mt-auto">
+    <div class="container">
+      <p>&copy; 2024 Ferteliz. Todos os direitos reservados.</p>
+      <p>Telefone: (19) 9986-4556 | Email: <a href="mailto:ferteliz.contato@gmail.com" class="text-white">ferteliz.contato@gmail.com</a></p>
+      <div class="social-icons">
+        <a href="#"><img src="{% static 'imgs/instagram-icon.png' %}" alt="Instagram" class="mx-2"></a>
+        <a href="#"><img src="{% static 'imgs/facebook-icon.png' %}" alt="Facebook" class="mx-2"></a>
+        <a href="#"><img src="{% static 'imgs/linkedin-icon.png' %}" alt="LinkedIn" class="mx-2"></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

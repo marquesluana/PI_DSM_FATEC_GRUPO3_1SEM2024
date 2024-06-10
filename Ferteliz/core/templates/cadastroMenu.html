@@ -10,43 +10,30 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary page-nav">
-        <div class="container-fluid page-navbar">
-          <a class="navbar-brand" href="#"><img src="{% static 'imgs/logo.png' %}" alt="Logo Ferteliz" class="brand-image" ></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item right-border navbar-item1">
-                <a class="nav-link" aria-current="page" href="{% url 'home' %}">Início</a>
-              </li>
-              <li class="nav-item right-border navbar-item2">
-                <a class="nav-link" href="#">Fale conosco</a>
-              </li>
-              <li class="nav-item navbar-item3">
-                <a class="nav-link" href="#">Sobre nós</a>
-              </li>
-
-              <div class="nav-user-container">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">Logar</a>
-                </li>
-                <li class="nav-item">
-                  <a class="btn btn-warning btn-cadastro" href="{% url 'cadastroMenu' %}">cadastre-se</a>
-                </li>
-              </div>
-
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary page-nav">
+    <div class="container-fluid page-navbar">
+      <a class="navbar-brand" href="#"><img src="{% static 'imgs/logo.png' %}" alt="Logo Ferteliz" class="brand-image" ></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item right-border">
+            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Início</a>
+          </li>
+          <li class="nav-item left-margin">
+            <a class="nav-link" href="mailto:ferteliz.contato@gmail.com">Fale conosco</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="margin-left: 800px;"  href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-warning" style="border-radius: 30px;" href="{% url 'cadastroMenu' %}">cadastre-se</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
       <main>
         <div class="content-container">
