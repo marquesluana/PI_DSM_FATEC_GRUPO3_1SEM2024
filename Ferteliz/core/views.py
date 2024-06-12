@@ -1,5 +1,8 @@
 
 from django.shortcuts import render
+from .services.repository.ProdutoRepository import ProductModel
+
+
 
 # Create your views here.
 def home (request):
@@ -34,3 +37,11 @@ def profileVendedor(request):
 
 def profileCliente(request):
     return render(request, 'profileCliente.html')
+
+def add_product (request):
+    
+    
+    return render(request, 'add_product.html')
+
+def list_products (request):
+    return render(request, 'list_products.html')
