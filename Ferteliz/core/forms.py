@@ -1,16 +1,14 @@
-from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.core.exceptions import ValidationError
-from django.contrib.auth.models import User
-from .models import ProductModel, UserModel
+from .models import ProductModel, UserModel, VendaModel
 
 def validate_cpf(value):
     if len(value) != 11 or not value.isdigit():
         raise ValidationError('CPF precisa ter 11 dígitos numéricos.')
 
-class ProductForm(forms.ModelForm):
+class VendaForm(forms.ModelForm):
     class Meta:
-        model = ProductModel
+        model = VendaModel
         fields = ['dataVenda', 'codigoVenda', 'codigoCliente', 'codigoFornecedor', 'name', 'description', 'quantidade', 'valorUnitario', 'valorTotal']
         widgets = {
             'dataVenda': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data da Venda'}),
@@ -24,6 +22,17 @@ class ProductForm(forms.ModelForm):
             'valorTotal': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Valor Total'}),
         }
 
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = ProductModel
+        fields = ['name', 'description', 'price', 'image']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome do produto'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descrição'}),
+            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Valor'}),
+            'image': forms.FileInput(attrs={'class': 'form-control'}),
+        }
+
 class UserForm(forms.ModelForm):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Senha'}),
@@ -32,13 +41,13 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = UserModel
-        fields = ['username', 'cpf', 'telefone', 'rua', 'bairro', 'numero', 'password']
+        fields = ['username', 'cpf', 'telefone', 'cep', 'endereço', 'numero', 'password']
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome'}),
             'cpf': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'CPF'}),
             'telefone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Telefone'}),
-            'rua': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Rua'}),
-            'bairro': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Bairro'}),
+            'cep': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'CEP'}),
+            'endereço': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Endereço'}),
             'numero': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Número'}),
         }
 

@@ -1,12 +1,18 @@
 from django.urls import path
-from .views import add_product, list_products, register
 from . import views
 
 app_name = 'core'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('register', register, name='register'),
-    path('add_product', add_product, name='add_product'),
-    path('list_products', list_products, name='list_products'),
+    path('cadastroCliente', views.cadastroCliente, name='cadastroCliente'),
+    path('add_product', views.add_product, name='add_product'),
+    path('list_products', views.list_products, name='list_products'),
+    path('cadastroVendedor', views.cadastroVendedor, name='cadastroVendedor'),
+    path('cadastroProdutos', views.cadastroProdutos, name='cadastroProdutos'),
+    path('carrinho', views.carrinho, name='carrinho'),
+    path('login', views.login, name='login'),
+    path('profileCliente', views.profileCliente, name='profileCliente'),
+    path('profileVendedor', views.profileVendedor, name='profileVendedor'),
+    #path('', views., name=''),
 ]

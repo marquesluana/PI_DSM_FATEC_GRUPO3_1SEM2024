@@ -163,9 +163,9 @@ AUTH_USER_MODEL = 'core.UserModel'
 APPEND_SLASH = True
 
 # Caso o usuário nao esteja logado
-LOGIN_URL = 'register'
+LOGIN_URL = 'login'
 
-LOGINREDIRECT_URL = 'index'
+LOGINREDIRECT_URL = 'home'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

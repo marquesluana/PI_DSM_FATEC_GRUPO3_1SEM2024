@@ -1,8 +1,11 @@
-
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from .services.repository.ProdutoRepository import ProductModel
-
-
+from django.http import JsonResponse
+from django.contrib.auth import login, authenticate
+from django.urls import reverse
+from Ferteliz import settings
+from core.models import UserModel, ProductModel
+from .forms import UserForm, ProductForm
 
 # Create your views here.
 def home (request):
@@ -12,9 +15,27 @@ def cadastroMenu (request):
     return render(request, 'cadastroMenu.html')
 
 def cadastroCliente(request):
-    return render(request, 'cadastroCliente.html') 
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            return redirect('home')
+    else:
+        form = UserForm()
+        contexto = {'form': form}
+        return render(request, 'cadastroCliente.html', contexto)
 
 def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'login.html', {'error': 'Invalid credentials'})
     return render(request, 'login.html')
 
 def cadastroVendedor(request):
@@ -38,10 +59,33 @@ def profileVendedor(request):
 def profileCliente(request):
     return render(request, 'profileCliente.html')
 
-def add_product (request):
-    
-    
-    return render(request, 'add_product.html')
-
 def list_products (request):
-    return render(request, 'list_products.html')
+    products = ProductModel.objects.all()
+    data = []
+    for product in products:
+        data.append({
+            'name': product.name,
+            'description': product.description,
+            'price': str(product.price)
+        })
+    return JsonResponse(data, safe=False)
+    #return render(request, 'list_products.html')
+
+def add_product(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.cleaned_data
+            product = {
+                'name': data.get('name'),
+                'description': data.get('description'),
+                'price': float(data.get('price'))
+            }
+            db = settings.db
+            db.products.insert_one(product)
+            return JsonResponse({'status': 'Produto cadastrado com sucesso!'})
+        else:
+            return JsonResponse({'status': 'Form não é válido.'}, status=400)
+    else:
+        form = ProductForm()
+    return render(request, 'add_product.html', {'form': form})
