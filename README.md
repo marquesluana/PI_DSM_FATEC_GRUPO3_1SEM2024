@@ -94,14 +94,23 @@ Para rodar os testes do projeto, execute:
 
 Uma breve descrição da estrutura dos diretórios e arquivos principais do projeto.
 
-nome-do-repositorio/
+Ferteliz/
 │
+
 ├── manage.py
+
 ├── Ferteliz/
+
 │   ├── __init__.py
+
 │   ├── settings.py
+
 │   ├── urls.py
+
 │   ├── wsgi.py
+
 │   └── ...
+
 ├── requirements.txt
+
 └── ...
