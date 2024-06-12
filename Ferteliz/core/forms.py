@@ -11,12 +11,17 @@ def validate_cpf(value):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = ProductModel
-        fields = ['name', 'description', 'price', 'image']
+        fields = ['dataVenda', 'codigoVenda', 'codigoCliente', 'codigoFornecedor', 'name', 'description', 'quantidade', 'valorUnitario', 'valorTotal']
         widgets = {
+            'dataVenda': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Data da Venda'}),
+            'codigoVenda': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Código da Venda'}),
+            'codigoCliente': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Código do Cliente'}),
+            'codigoFornecedor': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Código do Fornecedor'}),
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome do produto'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descrição'}),
-            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Preço'}),
-            'image': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
+            'quantidade': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Quantidade'}),
+            'valorUnitario': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Valor Unitário'}),
+            'valorTotal': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Valor Total'}),
         }
 
 class UserForm(forms.ModelForm):

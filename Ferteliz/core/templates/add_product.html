@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cadastrar Product</title>
+    <meta charset="UTF-8">
+    <title>Cadastrar Produto</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
-    <h1>Cadastrar Product</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Add Product</button>
-    </form>
+    <div class="container">
+        <h1>Cadastrar Produto</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -144,7 +144,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'staticfiles/'
+STATIC_URL = 'static/'
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
@@ -163,9 +163,9 @@ AUTH_USER_MODEL = 'core.UserModel'
 APPEND_SLASH = True
 
 # Caso o usuário nao esteja logado
-LOGIN_URL = 'core/register'
+LOGIN_URL = 'register'
 
-LOGINREDIRECT_URL = 'core/index'
+LOGINREDIRECT_URL = 'index'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
