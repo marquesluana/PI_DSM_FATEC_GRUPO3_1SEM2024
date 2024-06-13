@@ -25,13 +25,18 @@ class VendaForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = ProductModel
-        fields = ['name', 'description', 'price', 'image']
+        fields = ['name', 'description', 'price']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome do produto'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descrição'}),
             'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Valor'}),
-            'image': forms.FileInput(attrs={'class': 'form-control'}),
-        }
+            }
+    def save(self, commit=True):
+        product = super(ProductForm, self).save(commit=False)
+        if commit:
+            product.save()
+        return product
+
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(

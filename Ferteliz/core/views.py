@@ -75,17 +75,14 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            data = form.cleaned_data
-            product = {
-                'name': data.get('name'),
-                'description': data.get('description'),
-                'price': float(data.get('price'))
-            }
-            db = settings.db
-            db.products.insert_one(product)
+            form.save()
             return JsonResponse({'status': 'Produto cadastrado com sucesso!'})
         else:
-            return JsonResponse({'status': 'Form não é válido.'}, status=400)
+            print(form.errors)  # Adicione esta linha para imprimir os erros do formulário no console
+            errors = form.errors.as_json()
+            return JsonResponse({'status': 'Formulário inválido', 'errors': errors}, status=400)
     else:
         form = ProductForm()
     return render(request, 'add_product.html', {'form': form})
+
+
