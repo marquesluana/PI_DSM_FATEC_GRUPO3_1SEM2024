@@ -5,7 +5,7 @@
 Repositório utilizado para o Projeto Interdisciplinar do 1º semestre de 2024 do curso de Desenvolvimento de Software Multiplataforma da Fatec Araras. O tema abordado é da ODS 2 - Fome Zero, e o grupo decidiu fazer um sistema web que fomenta o comércio com os pequenos agricultores da região.
 
 ## PARTICIPANTES:
-- [Leandro Alves Rodirgues](https://github.com/)<br>
+- [Leandro Alves Rodrigues](https://github.com/LeandroAlves1987)<br>
 - [Luana Marques](https://github.com/marquesluana)<br>
 - [Lucas Fernando Arantes](https://github.com/Arantees)<br>
 - [Lucas Ferreira](https://github.com/)<br>
