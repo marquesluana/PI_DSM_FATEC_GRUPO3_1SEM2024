@@ -71,6 +71,13 @@
                 </div>
                 <button type="submit" class="btn btn-warning register-btn">Cadastre-se</button>
             </form>
+            {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <strong>{{ error|escape }}</strong><br>
+                {% endfor %}
+            {% endfor %}
+            {% endif %}
             <!--
               <div class="mb-3 center mx-auto p-2" style="width: 500px; font-size: 20px;">
                 <span class="input-text"> Nome: </span>
