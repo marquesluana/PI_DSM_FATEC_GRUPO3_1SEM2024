@@ -27,7 +27,7 @@
           </li>
           
           <li class="nav-item left-margin">
-            <a class="nav-link" href="{% url 'cadastroProdutos' %}">cadastrar Produtos</a>
+            <a class="nav-link" href="{% url 'cadastroProdutos' %}">Cadastrar Produtos</a>
           </li>
 
           <li class="nav-item">
@@ -43,22 +43,23 @@
   <main>
     <div class="container">
       <h1>Cadastre seu produto</h1>
-      <form>
-        <div class="mb-3">
-          <label for="product-list" class="form-label">Informe o produto:</label>
-          <input type="text" class="form-control" id="product-list" name="product-list" placeholder="Lista de produtos">
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3" style="font-size: 20px;">
+          <span class="input-text"> Nome: </span>
+          {{ form.name }}
+        </div>
+        <div class="mb-3" style="font-size: 20px;">
+          <span class="input-text"> Descrição: </span>
+          {{ form.description }}
+        </div>
+        <div class="mb-3" style="font-size: 20px;">
+          <span class="input-text"> Preço: </span>
+          {{ form.price }}
         </div>
         <div class="mb-3">
-          <label for="image-upload" class="form-label">Insira a imagem:</label>
+          <label for="image-upload" class="form-label" style="font-size: 20px;">Insira a imagem:</label>
           <input type="file" class="form-control" id="image-upload" name="image-upload" accept="image/*">
-        </div>
-        <div class="mb-3">
-          <label for="price" class="form-label">Insira o valor:</label>
-          <input type="number" class="form-control" id="price" name="price" placeholder="R$ __,__">
-        </div>
-        <div class="mb-3">
-          <label for="description" class="form-label">Descreva seu produto:</label>
-          <textarea class="form-control" id="description" name="description" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-success">Cadastrar</button>
       </form>

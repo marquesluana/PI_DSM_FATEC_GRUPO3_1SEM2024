@@ -92,6 +92,10 @@ WSGI_APPLICATION = 'Ferteliz.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'mydatabase2.sqlite3',
+    },
+    'secondary': {
         'ENGINE': 'django.db.backends.dummy',
     }
 }

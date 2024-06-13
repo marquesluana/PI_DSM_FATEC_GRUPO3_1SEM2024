@@ -42,38 +42,69 @@
             <section class="page-section-1">
               <div class="section1-title_container"> 
                 <h2>Venha participar do nosso mundo. <br> Compras e vendas por todo país.</h2>
-            </div>
-
-                <div class="mb-3 center mx-auto p-2" style="width: 500px; font-size: 20px;">
+              </div>
+              <form method="post" class="center mx-auto p-2" style="width: 500px;">
+                {% csrf_token %}
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> Nome: </span>
+                    {{ form.username }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> CPF: </span>
+                    {{ form.cpf }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                  <span class="input-text"> CEP: </span>
+                  {{ form.cep }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> Endereço: </span>
+                    {{ form.endereco }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> Número: </span>
+                    {{ form.numero }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> Senha: </span>
+                    {{ form.password }}
+                </div>
+                <button type="submit" class="btn btn-warning register-btn">Cadastre-se</button>
+            </form>
+            <!--
+              <div class="mb-3 center mx-auto p-2" style="width: 500px; font-size: 20px;">
                 <span class="input-text"> Nome: </span>
                   <label for="formGroupExampleInput" class="form-label"></label>
                   <input type="name" class="form-control" style="text-align: center; color: #000; border: 1px solid black;" id="formGroupExampleInput">
-                </div>
+              </div>
 
-                <div class="mb-3 mx-auto p-2" style="width: 500px; margin-top: -20px; font-size: 20px">
-                 <span class="input-text">CPF:</span> 
+              <div class="mb-3 mx-auto p-2" style="width: 500px; margin-top: -20px; font-size: 20px">
+                <span class="input-text">CPF:</span> 
                 <label for="formGroupExampleInput" class="form-label"></label>
                 <input type="id" class="form-control" style="text-align: center; color: #000; border: 1px solid black; " id="formGroupExampleInput">
               </div>
 
-                <div class="mb-3 center mx-auto p-2" style="width: 500px; margin-top: -20px; font-size: 20px">
+              <div class="mb-3 center mx-auto p-2" style="width: 500px; margin-top: -20px; font-size: 20px">
                 <span class="input-text"> Rua:</span>
                   <label for="formGroupExampleInput" class="form-label"></label>
                   <input type="text" class="form-control" style="text-align: center; color: #000; border: 1px solid black; " id="formGroupExampleInput">
-                </div>
-                <div class="mb-3 center mx-auto p-2" style="width: 500px; margin-top: -20px; font-size: 20px">
+              </div>
+
+              <div class="mb-3 center mx-auto p-2" style="width: 500px; margin-top: -20px; font-size: 20px">
                   <span class="input-text">Número:</span> 
                   <label for="formGroupExampleInput" class="form-label"></label>
                   <input type="id" class="form-control" style="text-align: center; color: #000; border: 1px solid black;" id="formGroupExampleInput">
-                </div>
-                <div class="mb-3 center mx-auto p-2" style="width: 500px; margin-top: -20px; font-size: 20px">
+              </div>
+
+              <div class="mb-3 center mx-auto p-2" style="width: 500px; margin-top: -20px; font-size: 20px">
                  <span class="input-text">Senha:</span> 
                   <label for="formGroupExampleInput" class="form-label"></label>
                   <input type="password" class="form-control" style="text-align: center; color: #000; border: 1px solid black; font-size: 20px" id="formGroupExampleInput">
-                </div>
-                    <a type="submit" href="{% url 'homeCliente' %}" class="btn btn-warning register-btn" value="Cadastre-se">Cadastre-se</a>
-                    </section>  
-          </main>
+              </div>
+              <a type="submit" href="{% url 'homeCliente' %}" class="btn btn-warning register-btn" value="Cadastre-se">Cadastre-se</a>
+            -->
+            </section>  
+            </main>
 
           <footer>
             <div class=" footer-container">

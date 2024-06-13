@@ -7,15 +7,15 @@ class UserModel(AbstractUser):
     telefone = models.TextField(max_length=11, blank=True)
     cpf = models.CharField('CPF', max_length=30, default='')
     cep = models.CharField('CEP', max_length=8, default='')
-    endereço = models.CharField(max_length=40, blank=True)
+    endereco = models.CharField(max_length=40, blank=True)
     numero = models.CharField(max_length=5)
     password = models.CharField(max_length=128)
 
     def __str__(self):
-        """Devolve uma representação em string do modelo."""
         return self.username
 
     class Meta:
+        # using = 'secondary' para usar o mongo
         verbose_name = 'UserModel'
         verbose_name_plural = 'UsersModels'
         db_table = 'Users' # <= Define o nome da coleção no MongoDB
@@ -27,10 +27,10 @@ class ProductModel(models.Model):
     #image = models.ImageField(upload_to='produtos/')
 
     def __str__(self):
-        """Devolve uma representação em string do modelo."""
         return self.name
     
     class Meta:
+        # using = 'secondary' para usar o mongo
         verbose_name = 'ProductModel'
         verbose_name_plural = 'ProductsModel'
     
@@ -46,6 +46,10 @@ class VendaModel(models.Model):
     valorTotal = models.DecimalField(decimal_places=2, max_digits=10)
     
     def __str__(self):
-        """Devolve uma representação em string do modelo."""
         return self.name
+    
+    class Meta:
+        # using = 'secondary' para usar o mongo
+        verbose_name = 'VendaModel'
+        verbose_name_plural = 'VendaModel'
         

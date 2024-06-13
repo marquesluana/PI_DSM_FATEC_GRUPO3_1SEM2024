@@ -32,7 +32,7 @@ class ProductForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome do produto'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descrição'}),
-            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Valor'}),
+            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Valor: R$__,__'}),
         }
         
     
@@ -63,13 +63,13 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = UserModel
-        fields = ['username', 'cpf', 'telefone', 'cep', 'endereço', 'numero', 'password']
+        fields = ['username', 'cpf', 'telefone', 'cep', 'endereco', 'numero', 'password']
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome'}),
             'cpf': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'CPF'}),
             'telefone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Telefone'}),
             'cep': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'CEP'}),
-            'endereço': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Endereço'}),
+            'endereco': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Endereço'}),
             'numero': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Número'}),
         }
 
@@ -88,16 +88,16 @@ class UserForm(forms.ModelForm):
         validate_cpf(cpf)
         return cpf
     
-    def clean_rua(self):
-        rua = self.cleaned_data['rua']
-        return rua.upper()
+    def clean_endereco(self):
+        endereco = self.cleaned_data['endereco']
+        return endereco.upper()
     
-    def clean_bairro(self):
-        bairro = self.cleaned_data['bairro']
-        if bairro:
-            return bairro.upper().strip()
+    def cep(self):
+        cep = self.cleaned_data['cep']
+        if re.fullmatch(r'\d{8}', cep):
+            return cep
         else:
-            raise ValidationError('Campo vazio e/ou inválido.')
+            raise ValidationError('CEP inválido.')
 
     def save(self, commit=True):
         user = super(UserForm, self).save(commit=False)
