@@ -23,3 +23,6 @@ Ferteliz/venv/
 
 # Ignorar o diretório .vscode
 .vscode/
+
+# Ignorar o sqlite
+.sqlite3
