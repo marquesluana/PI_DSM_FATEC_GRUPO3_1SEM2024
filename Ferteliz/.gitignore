@@ -1,1 +1,23 @@
-_pycache_/
+# Ignorar arquivos de byte compilados e arquivos de cache
+
+# Ignora o diretório __pycache__ e seu conteúdo
+__pycache__/
+
+# Ignora arquivos compilados Python
+*.pyc
+*.pyo
+*.pyd
+
+# Padrões adicionais para arquivos compilados Python
+*.py[cod]
+*$py.class
+
+# Ignorar arquivos .pot e .so
+*.pot
+*.so
+
+# Ignorar o diretório venv
+venv/
+
+# Ignorar o diretório .vscode
+.vscode/

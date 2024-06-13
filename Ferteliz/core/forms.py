@@ -1,6 +1,9 @@
 from django import forms
 from django.core.exceptions import ValidationError
+
+from .services.connection import get_db
 from .models import ProductModel, UserModel, VendaModel
+import re
 
 def validate_cpf(value):
     if len(value) != 11 or not value.isdigit():
@@ -30,11 +33,25 @@ class ProductForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome do produto'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descrição'}),
             'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Valor'}),
-            }
+        }
+        
+    
     def save(self, commit=True):
-        product = super(ProductForm, self).save(commit=False)
-        if commit:
-            product.save()
+        # Acessar os dados do formulário após a validação
+        cleaned_data = self.cleaned_data
+        name = cleaned_data.get('name', '')
+        description = cleaned_data.get('description', '')
+        price = cleaned_data.get('price', 0)
+
+        # Imprimir os dados no console
+        print(f'Name: {name}, Description: {description}, Price: {price}')
+
+        # Inserir dados no MongoDB
+        product = get_db().products.insert_one({
+            'name': name,
+            'description': description,
+            'price': float(price)
+        })      
         return product
 
 
@@ -58,11 +75,11 @@ class UserForm(forms.ModelForm):
 
     def clean_nome(self):
         nome = self.cleaned_data['nome']
-        return nome.upper()
+        return nome.upper().strip()
 
     def clean_telefone(self):
         telefone = self.cleaned_data['telefone']
-        if len(telefone) <= 11:
+        if re.match(r'^\(\d{2}\) \d{4,5}-\d{4}$', telefone):
             return telefone
         raise ValidationError('Telefone precisa ter 10 ou 11 caracteres (Ex: 19 99999 9999)')
 
@@ -77,7 +94,10 @@ class UserForm(forms.ModelForm):
     
     def clean_bairro(self):
         bairro = self.cleaned_data['bairro']
-        return bairro.upper()
+        if bairro:
+            return bairro.upper().strip()
+        else:
+            raise ValidationError('Campo vazio e/ou inválido.')
 
     def save(self, commit=True):
         user = super(UserForm, self).save(commit=False)
