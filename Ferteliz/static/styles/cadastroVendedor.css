@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Adamina&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Adamina&family=Akshar:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 *{
@@ -9,52 +8,18 @@
     margin: 0;
 }
 
-.page-nav {
+.page-nav{
     padding-top: 0;
     padding-bottom: 0;
-    
+    border: 1px solid;
 }
 
-.nav-link {
-    color: #FFFFFF;
-    font-family: "Akshar";
-    font-weight: 500;
-    font-size: 18px;
-    
-}
-
-
-
-.right-border {
-    border-right: 1px solid #FFFFFF;
-    
-}
-
-.left-margin {
-    margin-left: 15px;
-}
-
-.page-navbar {
+.page-navbar{
     height:85px;
     background-color: #1D7249;
-    
 }
 
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5px;
-}
 
-.brand-image {
-    height: 87px;
-    
-}
-
-.signup-btn{
-    font-family: 'Akshar';
-}
 
 main{
     display: flex;
@@ -62,6 +27,7 @@ main{
     justify-content: center;
     padding-left: 70px;
     padding-right: 70px;
+    background-color: #DCDDDE;
 }
 
 .main-page-container{
@@ -96,15 +62,15 @@ main{
     background-color: #59B528;
 }
 
+.input-text{
+font-family: 'Akshar';
+}
+
 .main-container_right{
     display: flex;
     align-items: center;
     justify-content: center;    
     
-}
-
-.input-text{
-    font-family: 'Akshar';
 }
 
 .main_title{
@@ -116,8 +82,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
+
 }
 
 .section1-title_container{
@@ -155,22 +120,14 @@ margin-top: 30px;
     -webkit-text-stroke-width: 0.8px;
 }
 
+
 .register-btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid;
     border-radius: 30px;
-    width: 414px;
-    height: 66px;
-    font-family: 'Akshar';
-    font-size: 40px;
-    font-weight: 400;
-    margin-top: 30px;
+    width: 350px;
+    height: 40px;
 }
 
-.register-btn:hover{
-    border: 1px solid;
-}
 
 /* Estilo para o botão de cadastro */
 .botao-cadastro {
@@ -188,52 +145,4 @@ margin-top: 30px;
     background-color: #d4ab2e; /* Nova cor de fundo ao passar o mouse */
 }
 
-.left-border {
-    border-right: 1px solid #FFFFFF;
-    
-}
-
-.footer-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 230px;
-    width: 100%;
-    border: 1px solid;
-    border-radius: 40px 40px 0 0;
-    background-color: #353739;
-}
-
-.footer-container .copyright{
-    margin-top: 30px;
-    color: #FFFFFF;
-    font-family: 'Akshar';
-}
-
-.footer-contact_container{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-}
-
-.footer-contact_container span {
-    font-family: 'Inter';
-    color: #FFFFFF;
-    font-family: 'Akshar';
-}
-
-.footer-icon_container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 20px;
-}
-
-.footer-icon_container img{
-    height: 57px;
-    width: 60px;
-}
 

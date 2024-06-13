@@ -17,7 +17,7 @@
 
 .nav-link {
     color: #FFFFFF;
-    font-family: "Quicksand";
+    font-family: "Akshar";
     font-weight: 500;
     font-size: 18px;
     
@@ -53,7 +53,7 @@
 }
 
 .signup-btn{
-    font-family: 'Quicksand';
+    font-family: 'Akshar';
 }
 
 main{
@@ -86,6 +86,10 @@ main{
     border-radius: 45px 0 0 45px;
 }
 
+.input-text{
+    font-family: 'Akshar';
+}
+
 .main-container_left .left_container{
     display: flex;
     align-items: center;
@@ -105,7 +109,7 @@ main{
 }
 
 .main_title{
-    font-family: "Adamina";
+    font-family: "Akshar";
     color: #000000;
 }
 
@@ -129,7 +133,7 @@ main{
  text-shadow: -1px 2px 3px rgba(0,0,0,0.96);
 -webkit-text-stroke-width: 0.8px;
 -webkit-text-stroke-color: #000000;
-font-family: "Poppins";
+font-family: "Akshar";
 }
 
 .section1-title_container h2{
@@ -152,11 +156,17 @@ font-family: "Poppins";
 }
 
 .login-btn{
-    width: 200px;
-    height: 50px;
-    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 30px;
-    border: 1px solid
+    width: 414px;
+    height: 66px;
+    font-family: 'Akshar';
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 200px;
 }
 
 .login-btn:hover{
@@ -205,7 +215,7 @@ font-family: "Poppins";
 .footer-container .copyright{
     margin-top: 30px;
     color: #FFFFFF;
-    font-family: 'Inter';
+    font-family: 'Akshar';
 }
 
 .footer-contact_container{
@@ -216,9 +226,9 @@ font-family: "Poppins";
 }
 
 .footer-contact_container span {
-    font-family: 'Inter';
+    font-family: 'Akshar';
     color: #FFFFFF;
-    font-family: 'Inter';
+    
 }
 
 .footer-icon_container{

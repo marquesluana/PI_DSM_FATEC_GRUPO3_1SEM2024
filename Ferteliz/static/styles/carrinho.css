@@ -15,7 +15,7 @@
     padding-bottom: 0;
     
 }
-
+/*Fonte, tamanho e cor dos elementos da navbar*/
 .nav-link {
     color: #FFFFFF;
     font-family: "Quicksand";
@@ -24,23 +24,22 @@
     
 }
 
+/*Borda branca no navbar*/
 .right-border {
     border-right: 1px solid #FFFFFF;
     
 }
-
+/*Espaçamento dos elementos da navbar*/
 .left-margin {
     margin-left: 15px;
 }
-
+/*Cor do background da navbar*/
 .page-navbar {
     height:85px;
     background-color: #1D7249;
-    
 }
 
-
-
+/*Ajuste no posicionamento da logo na navbar*/
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -48,18 +47,35 @@
     margin-top: 5px;
 }
 
+/*Tamanho da logo na navbar*/
 .brand-image {
     height: 87px;
     
+}
+/*Ajuste no posicionamento do veector*/
+.navbar-brand-vector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+/*Tamanho do vector*/
+.brand-image-vector {
+    height: 48px;  
+    margin-left: 900px;
+    margin-top: -50px;
+    position:absolute;
 }
 
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding-left: 70px;
     padding-right: 70px;
-    background-color: #DCDDDE;
+    
 }
 
 .main-page-container {
@@ -339,7 +355,7 @@ main {
     border-radius: 30px;
     margin: 30px;
     padding: 20px;
-    background-color: white;
+    background-color: #DCDDDE;
     width: 1000px;
     display: flex;
 }
