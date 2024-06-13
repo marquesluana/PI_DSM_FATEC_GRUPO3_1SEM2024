@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,13 +26,21 @@
             <a class="nav-link" href="mailto:ferteliz.contato@gmail.com">Fale conosco</a>
           </li>
           
-          <li class="nav-item left-margin">
+          <li class="nav-item left-margin right-border">
             <a class="nav-link" href="#SobreNos">Sobre nós</a>
           </li>
 
+          <li class="nav-item left-margin right-border">
+            <a class="nav-link" href="{% url 'carrinho' %}">Carrinho</a>
+          </li>
+
+          <li class="nav-item left-margin">
+            <a class="nav-link" href="{% url 'compras' %}">Produtos</a>
+          </li>
+
           <li class="nav-item">
-            <a class="nav-link" style="margin-left: 680px;" href="{% url 'profileCliente' %}">Área do usuário</a>
-            <a class="navbar-brand-vector" href="{% url 'profileCliente' %}">  <img src="{% static 'imgs/vector1.png' %}" alt="Logo Ferteliz" class="brand-image-vector" ></a>        
+            <a class="nav-link" style="margin-left: 900px; margin-right: 100px;" href="{% url 'profileCliente' %}">Área do usuário</a>
+            <a class="navbar-brand-vector" style="margin-left: 100px;" href="{% url 'profileCliente' %}">  <img src="{% static 'imgs/vector1.png' %}" alt="Logo Ferteliz" class="brand-image-vector" ></a>        
           </li>
         </ul>
       </div>

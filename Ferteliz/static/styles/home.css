@@ -18,7 +18,7 @@
 
 .nav-link {
     color: #FFFFFF;
-    font-family: "Quicksand";
+    font-family: "Akshar";
     font-weight: 500;
     font-size: 18px;
     
@@ -54,7 +54,7 @@
 }
 
 .signup-btn{
-    font-family: 'Quicksand';
+    font-family: 'Akshar';
 }
 
 main {
@@ -125,8 +125,10 @@ main {
 
 
 .main_title {
-    font-family: "Adamina";
+    font-family: "Akshar";
     color: #000000;
+    font-weight: 400;
+    margin-top: 10px;
 }
 
 .page-section-1 {
@@ -145,7 +147,7 @@ main {
 .section1-title_container h1 {
     text-align: center;
     color: #254B11;
-    font-family: "Poppins";
+    font-family: "Akshar";
     
 }
 
@@ -153,7 +155,7 @@ main {
     text-align: center;
     color: #000000;
 
-    font-family: "Poppins";
+    font-family: "Akshar";
 }
 
 .section1-title_container2 {
@@ -179,7 +181,7 @@ main {
 
 .products-section span {
     color: #254B11;
-    font-family: "Questrial";
+    font-family: "Akshar";
     font-size: 36px;
     margin-left: 25px;
 }
@@ -206,13 +208,13 @@ main {
 }
 
 .card-body .product-title {
-    font-family: 'Questrial', sans-serif;
+    font-family: 'Akshar', sans-serif;
     color: #254B11;
     font-size: 25px;
 }
 
 .card-body .product-price {
-    font-family: 'Questrial', sans-serif;
+    font-family: 'Akshar', sans-serif;
     color: #254B11;
     font-size: 20px;
 }
@@ -238,7 +240,7 @@ main {
 }
 
 .section2-card-container .card {
-    font-family: 'Quicksand';
+    font-family: 'Akshar';
     padding-top: 40px;
     align-items: center;
     height: 320px;
@@ -275,7 +277,7 @@ main {
 
 .section3-container p{
     color: #254B11;
-    font-family: 'Quicksand';
+    font-family: 'Akshar';
     font-size: 36px;
     margin-top: 50px;
     font-weight: 400;
@@ -298,7 +300,7 @@ main {
 .footer-container .copyright{
     margin-top: 30px;
     color: #FFFFFF;
-    font-family: 'Inter';
+    font-family: 'Akshar';
 }
 
 .footer-contact_container{
@@ -309,9 +311,9 @@ main {
 }
 
 .footer-contact_container span {
-    font-family: 'Inter';
+    font-family: 'Akshar';
     color: #FFFFFF;
-    font-family: 'Inter';
+    
 }
 
 .footer-icon_container{

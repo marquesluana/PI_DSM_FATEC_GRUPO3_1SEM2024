@@ -94,6 +94,7 @@ main {
 /*Posicionamento do container da ferteliz para esquerda*/
 .main-container_left {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border-right: 3px solid #254B11;
@@ -101,6 +102,14 @@ main {
     width: 660px;
     border-radius: 45px 0 0 45px;
     background-color: white;
+
+}
+
+
+.welcome-message{
+    font-family: 'Akshar';
+    font-size: 25px;
+    color: #254B11;
 }
 
 /*Estilo, borda, tamanho e propriedades da fonte "FERTELIZ"*/
@@ -113,6 +122,7 @@ main {
     border: 1px solid;
     border-radius: 35px;
     background-color: #59B528;
+    margin-bottom: 20px;
 }
 
 /*Ajuste minimo na imagem da home*/
@@ -138,10 +148,43 @@ main {
     
 }
 
+.user-name{
+    font-family: 'Akshar';
+}
+
+.user-data{
+    font-family: 'Akshar';
+}
+
+.edit-btn{
+    font-family: 'Akshar';
+}
+
+.quit-btn{
+    font-family: 'Akshar';
+}
+
 /*Fonte e cor do "FERTELIZ"*/
 .main_title {
-    font-family: "Adamina";
+    font-family: "Akshar";
     color: #000000;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.fornecedor-main-vector{
+    height: 326px;
+    width: 326px;
+}
+
+.link-text{
+    text-decoration: none;
+    color: #254B11;
+}
+
+.vendedor-info-container p {
+    font-family: 'Akshar';
+    font-size: 25px;
 }
 
 /*Controle e ajuste da seção 1 (Aqui você pode comprar...)*/
@@ -160,13 +203,13 @@ main {
 .section1-title_container h1 {
     text-align: center;
     color: #254B11;
-    font-family: "Poppins";
+    font-family: "Akshar";
 }
 /*Paragrafo da seção 1*/
 .section1-title_container h2 {
     text-align: center;
     color: #000000;
-    font-family: "Poppins";
+    font-family: "Akshar";
 }
 /*Titulo da seção 1*/
 .section1-title_container2 {
@@ -183,7 +226,9 @@ main {
 /*Borda da seção dos alimentos*/
 .products-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     border: 1px solid#254B11;
     border-radius: 70px;
     padding-top: 10px;
@@ -193,7 +238,7 @@ main {
 /*Titulo da seção dos alimentos*/
 .products-section span {
     color: #254B11;
-    font-family: "Questrial";
+    font-family: "Akshar";
     font-size: 36px;
     margin-left: 25px;
 }
@@ -223,14 +268,14 @@ main {
 
 /*Tamanho da descrição dos alimentos*/
 .card-body .product-title {
-    font-family: 'Questrial', sans-serif;
+    font-family: 'Akshar';
     color: #254B11;
     font-size: 25px;
 }
 
 /*Tamanho do preço dos alimentos*/
 .card-body .product-price {
-    font-family: 'Questrial', sans-serif;
+    font-family: 'Akshar';
     color: #254B11;
     font-size: 20px;
 }
@@ -258,7 +303,7 @@ main {
 }
 /*Borda, fonte, alinhamento, tamanho etc, no container da seção 2*/
 .section2-card-container .card {
-    font-family: 'Quicksand';
+    font-family: 'Akshar';
     padding-top: 40px;
     align-items: center;
     height: 320px;
@@ -298,7 +343,7 @@ main {
 /*Paragrafo de container da seção 3*/
 .section3-container p{
     color: #254B11;
-    font-family: 'Quicksand';
+    font-family: 'Akshar';
     font-size: 36px;
     margin-top: 50px;
     font-weight: 400;
@@ -322,7 +367,7 @@ main {
 .footer-container .copyright{
     margin-top: 30px;
     color: #FFFFFF;
-    font-family: 'Inter';
+    font-family: 'Akshar';
 }
 
 /*Espaçamento do footer*/
@@ -334,9 +379,9 @@ main {
 }
 /*Cor e fonte dos trechos "Telefone: (19) 9986-4556", "Email: Ferteliz.contato@gmail.com"*/
 .footer-contact_container span {
-    font-family: 'Inter';
+    font-family: 'Akshar';
     color: #FFFFFF;
-    font-family: 'Inter';
+    font-family: 'Akshar';
 }
 /*Espaçamento dos icones do footer*/
 .footer-icon_container{

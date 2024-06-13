@@ -30,6 +30,8 @@
             <a class="nav-link" href="#SobreNos">Sobre nós</a>
           </li>
 
+          
+
           <li class="nav-item">
             <a class="nav-link" style="margin-left: 680px;" href="{% url 'profileVendedor' %}">Área do usuário</a>
             <a class="navbar-brand-vector" href="{% url 'profileVendedor' %}">  <img src="{% static 'imgs/vector1.png' %}" alt="Logo Ferteliz" class="brand-image-vector" ></a>        
@@ -45,7 +47,9 @@
       <div class="main-container_left">
         <div class="container-xxl left_container">
           <h2 class="display-2 main_title">Ferteliz</h2>
+          
         </div>
+        <p class="welcome-message">Bem-vindo, venda seus produtos e faça a diferença.</p>
       </div>
       
       <div class="main-container_right">
@@ -57,40 +61,29 @@
 
     <section class="page-section-1">
       <div class="section1-title_container"> 
-      <h1>Aqui você pode comprar e vender seus produtos!</h1>
-      <h2>Trabalhamos com segurança e com rapidez, venha fazer parte você também!</h2>
+      <h1>Comece já!</h1>
+      <h2 class="section1-link-text"> Clique <a href="{% url 'cadastroProdutos' %}" class="link-text">[aqui]</a> e cadastre seus produtos!</h2>
     </div>
 
     <div class="section1-title_container2">
-      <h1>Confira os produtos de nossos fornecedores</h1>
+      <h1>Seja um distribuidor</h1>
     </div>
 
     <div class="container products-section">
-      <span>Mais vendidos da semana</span>
-      <div class="products-group">
-        
-      <div class="card product-container" style="width: 18rem;">
-        <img src="{% static 'imgs/produto-1.png' %}" class="card-img-top" alt="produto 1" height="250px">
-        <div class="card-body">
-          <h5 class="card-title product-title">Rúcula Donatella</h5>
-          <p class="card-text product-price">R$ 14,95 Kg</p>
-        </div>
-      </div>
-      <div class="card product-container" style="width: 18rem;">
-        <img src="{% static 'imgs/produto-2.png' %}" class="card-img-top" alt="produto 2" height="250px">
-        <div class="card-body">
-          <h5 class="card-title product-title">Tomate Carmem</h5>
-          <p class="card-text product-price">R$ 8,99 Kg</p>
-        </div>
-      </div>
-      <div class="card product-container" style="width: 18rem;">
-        <img src="{% static 'imgs/produto-3.png' %}" class="card-img-top" alt="produto 3" height="250px">
-        <div class="card-body">
-          <h5 class="card-title product-title">Couve-Flor Verão</h5>
-          <p class="card-text product-price">R$ 7,98 Un</p>
-        </div>
+      <img src="{% static 'imgs/green-fornecedor-main-vector.png' %}" alt="" class="fornecedor-main-vector">
+      <div class="vendedor-info-container">
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+      </svg> Sendo fornecedor você terá direito de vender seus produtos de forma segura e poderá divulgar seus produtos como forma de cresimento em sua carreira;</p>
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+      </svg> Caso esteja começando na área esta pode ser uma óitima oportunidade de começar seu negócio, transportando seus produtos sem sair de casa;</p>
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+      </svg> Seja avaliado pelos seus clientes para alavancar seu sucesso e conseguir novos compradores.</p>
       </div>
       </div>
+
     </div>
     </section>
 
@@ -102,32 +95,31 @@
       <div class="container section2-card-container">
 
         <div class="card" style="width: 18rem;">
-          <img src="{% static 'imgs/green-card1-image.png' %}" class="card-img-top" alt="imagem do card 1">
+          <img src="{% static 'imgs/green-fornecedor-card-1.png' %}" class="card-img-top" alt="imagem do card 1">
           <div class="card-body">
-            <p class="card-text">O produto é colhido e selecionado na plantação de nossos contribuintes.</p>
+            <p class="card-text">Clique no icone de vendas para cadastrar os seus produtos.</p>
           </div>
         </div>
 
           <div class="card" style="width: 18rem;">
-            <img src="{% static 'imgs/green-card2-image.png' %}" class="card-img-top" alt="imagem do card 2">
+            <img src="{% static 'imgs/green-fornecedor-card-2.png' %}" class="card-img-top" alt="imagem do card 2">
             <div class="card-body">
-              <p class="card-text">O transporte é feito de forma
-                segura e confiável até o nosso centro de distribuição.</p>
+              <p class="card-text">Dê um nome, uma descrição e uma imagem de seu produto. Essa será a visão do seu cliente.</p>
             </div>
           </div>
 
           <div class="card" style="width: 18rem;">
-            <img src="{% static 'imgs/green-card3-image.png' %}" class="card-img-top" alt="imagem do card 3">
+            <img src="{% static 'imgs/green-card2-image.png' %}" class="card-img-top" alt="imagem do card 3">
             <div class="card-body">
-              <p class="card-text">É feito um exímio controle de qualidade para garantir a entrega dos melhores produtos.</p>
+              <p class="card-text">Após sua venda os produtos serão analisados e validados, então você deverá envia-lo para entrega.</p>
             </div>
           </div>
           
           
           <div class="card" style="width: 18rem;">
-            <img src="{% static 'imgs/green-card4-image.png' %}" class="card-img-top" alt="imagem do card 4">
+            <img src="{% static 'imgs/green-fornecedor-card-3.png' %}" class="card-img-top" alt="imagem do card 4">
             <div class="card-body">
-              <p class="card-text">O produto é entregue na sua casa e você pode disfrutar do melhor.</p>
+              <p class="card-text">Após efetuada a compra, o cliente poderá avaliar o produto.</p>
             </div>
           </div>
       </div>

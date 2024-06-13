@@ -69,44 +69,58 @@
 }
 
 main {
-    padding: 20px;
-    background-color: #e0e0e0;
-    max-width: 600px;
-    margin: 40px auto;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex-grow: 1;
-}
-
-main h1 {
-    text-align: center;
-    color: #0a6530;
-}
-
-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: #ffffff;
 }
 
-form label {
-    margin: 10px 0 5px;
+
+.product-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
 }
 
-form input[type="text"],
-form input[type="file"],
-form textarea {
-    padding: 10px;
-    margin-bottom: 20px;
+.product-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    max-height: 300px; /* Add this line to limit the height of the image */
+}
+
+.product-details {
+    margin-left: 20px;
+    max-width: 300px;
+}
+
+.price {
+    font-size: 24px;
+    color: #333;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    cursor: pointer;
 }
 
-form textarea {
-    height: 100px;
-    resize: none;
+button:hover {
+    background-color: #45a049;
 }
 
-/*Configurações e ajustes de tamanho, background, borda, posicionamento etc do footer*/
+.description {
+    color: #666;
+    margin-top: 20px;
+}
+
 .footer-container{
     display: flex;
     flex-direction: column;
@@ -119,27 +133,25 @@ form textarea {
     background-color: #353739;
 }
 
-/*Cor e fonte do trecho "© 2024 Ferteliz. Todos os direitos reservados."*/
 .footer-container .copyright{
     margin-top: 30px;
     color: #FFFFFF;
     font-family: 'Inter';
 }
 
-/*Espaçamento do footer*/
 .footer-contact_container{
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
-/*Cor e fonte dos trechos "Telefone: (19) 9986-4556", "Email: Ferteliz.contato@gmail.com"*/
+
 .footer-contact_container span {
     font-family: 'Inter';
     color: #FFFFFF;
     font-family: 'Inter';
 }
-/*Espaçamento dos icones do footer*/
+
 .footer-icon_container{
     display: flex;
     flex-direction: row;
@@ -148,7 +160,7 @@ form textarea {
     gap: 50px;
     margin-top: 20px;
 }
-/*Tamanho dos icones do footer*/
+
 .footer-icon_container img{
     height: 57px;
     width: 60px;
@@ -159,3 +171,5 @@ form textarea {
         display: none;
     }
 }
+
+
