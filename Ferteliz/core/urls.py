@@ -14,5 +14,4 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('profileCliente', views.profileCliente, name='profileCliente'),
     path('profileVendedor', views.profileVendedor, name='profileVendedor'),
-    #path('', views., name=''),
 ]
