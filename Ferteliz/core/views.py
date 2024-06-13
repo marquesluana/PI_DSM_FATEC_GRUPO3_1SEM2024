@@ -7,6 +7,7 @@ from django.contrib.auth import login, authenticate
 from Ferteliz import settings
 from core.models import ProductModel
 from .forms import UserForm, ProductForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def home (request):
@@ -20,7 +21,7 @@ def cadastroCliente(request):
         form = UserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            login(request, user)
             return HttpResponseRedirect('home')
     else:
         form = UserForm()
@@ -28,14 +29,14 @@ def cadastroCliente(request):
     contexto = {'form': form}
     return render(request, 'cadastroCliente.html', contexto)
 
-def login(request):
+def user_login(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        cpf = request.POST['cpf']
         password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, username=cpf, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('home')
+            return HttpResponseRedirect('homeCliente')
         else:
             return render(request, 'login.html', {'error': 'Credenciais inválidas'})
     return render(request, 'login.html')

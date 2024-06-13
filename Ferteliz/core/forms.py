@@ -81,7 +81,7 @@ class UserForm(forms.ModelForm):
         telefone = self.cleaned_data['telefone']
         if re.match(r'^\(\d{2}\) \d{4,5}-\d{4}$', telefone):
             return telefone
-        raise ValidationError('Telefone precisa ter 10 ou 11 caracteres (Ex: 19 99999 9999)')
+        raise ValidationError('Telefone precisa estar no formato (__)____-____)')
 
     def clean_cpf(self):
         cpf = self.cleaned_data['cpf']

@@ -30,7 +30,7 @@
             <a class="nav-link" style="margin-left: 1080px;"  href="{% url 'login' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-warning signup-btn" style="border-radius: 30px; " href="{% url 'cadastroMenu' %}">cadastre-se</a>
+            <a class="btn btn-warning signup-btn" style="border-radius: 30px; " href="{% url 'cadastroMenu' %}">Cadastre-se</a>
           </li>
         </ul>
       </div>
@@ -43,21 +43,23 @@
             <section class="page-section-1">
               <div class="section1-title_container"> 
                 <h2>Conecte-se conosco. <br>  Vire a chave do sucesso!</h2>
-            </div>
+              </div>
+              <form method="post">
+                {% csrf_token %}
                 <div class="mb-3 mx-auto p-2" style="width: 500px; margin-top: 14px; font-size: 20px">
                   <span class="input-text">CPF</span>
                   <label for="formGroupExampleInput" class="form-label"></label>
-                  <input type="id" class="form-control" style="text-align: center; color: #000; border: 1px solid black; " id="formGroupExampleInput" placeholder="000.000.000-00" >
+                  <input name="cpf" type="id" class="form-control" style="text-align: center; color: #000; border: 1px solid black; " id="formGroupExampleInput" placeholder="000.000.000-00" >
                 </div>
-                
 
                 <div class="mb-3 center mx-auto p-2" style="width: 500px; margin-top: -8px; font-size: 20px">
                   <span class="input-text">Senha</span>  
                   <label for="formGroupExampleInput" class="form-label"></label>
-                  <input type="password" class="form-control" style="text-align: center; color: #000; border: 1px solid black; " id="formGroupExampleInput" placeholder="">
+                  <input name="password" type="password" class="form-control" style="text-align: center; color: #000; border: 1px solid black; " id="formGroupExampleInput" placeholder="">
                 </div>
-
+              
                 <input type="submit" class="btn btn-warning login-btn" value="Entrar">
+              </form>
             </section>
           </main>
 

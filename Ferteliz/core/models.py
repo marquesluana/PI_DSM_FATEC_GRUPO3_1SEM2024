@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 class UserModel(AbstractUser):
     username = models.CharField(max_length=50, unique=True, null=False, blank=False)
     #date_of_birth = models.DateField(null=True, blank=True)
-    telefone = models.TextField(max_length=11, blank=True)
+    telefone = models.TextField(max_length=15, blank=True)
     cpf = models.CharField('CPF', max_length=30, default='')
     cep = models.CharField('CEP', max_length=8, default='')
     endereco = models.CharField(max_length=40, blank=True)

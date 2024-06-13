@@ -30,7 +30,7 @@
             <a class="nav-link" style="margin-left: 1085px;"  href="{% url 'login' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-warning signup-btn" style="border-radius: 30px; " href="{% url 'cadastroMenu' %}">cadastre-se</a>
+            <a class="btn btn-warning signup-btn" style="border-radius: 30px; " href="{% url 'cadastroMenu' %}">Cadastre-se</a>
           </li>
         </ul>
       </div>
@@ -52,6 +52,10 @@
                 <div class="mb-3" style="font-size: 20px;">
                     <span class="input-text"> CPF: </span>
                     {{ form.cpf }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                  <span class="input-text"> Telefone: </span>
+                  {{ form.telefone }}
                 </div>
                 <div class="mb-3" style="font-size: 20px;">
                   <span class="input-text"> CEP: </span>
