@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'styles/profileVendedor.css' %}"> 
+    <link rel="stylesheet" href="{% static 'styles/cadastroProdutos.css' %}"> 
     <title>Ferteliz</title>
 </head>
 <body>
@@ -22,8 +22,12 @@
           <li class="nav-item right-border">
             <a class="nav-link" aria-current="page" href="{% url 'homeVendedor' %}">Início</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item right-border left-margin">
             <a class="nav-link" href="mailto:ferteliz.contato@gmail.com">Fale conosco</a>
+          </li>
+          
+          <li class="nav-item left-margin">
+            <a class="nav-link" href="{% url 'cadastroProdutos' %}">cadastrar Produtos</a>
           </li>
 
           <li class="nav-item">
@@ -37,19 +41,28 @@
   <!-- Fim da navbar do projeto -->
 
   <main>
-      <section class="profile">
-          <div class="profile-picture">
-              <img src="{% static 'imgs/profile-picture_template.png' %}" alt="Foto do Vendedor">
-          </div>
-          <div class="profile-details">
-              <h1 class="user-name">Nome do Vendedor</h1>
-              <p class="user-data">Email: vendedor@exemplo.com</p>
-              <p class="user-data">Telefone: (11) 1234-5678</p>
-              <p class="user-data">Endereço: Rua Exemplo, 123, São Paulo, SP</p>
-              <button class="edit-btn">Editar Perfil</button>
-              <a href="{% url 'home' %}" class="quit-btn"><button>Sair</button></a>
-          </div> 
-      </section>
+    <div class="container">
+      <h1>Cadastre seu produto</h1>
+      <form>
+        <div class="mb-3">
+          <label for="product-list" class="form-label">Informe o produto:</label>
+          <input type="text" class="form-control" id="product-list" name="product-list" placeholder="Lista de produtos">
+        </div>
+        <div class="mb-3">
+          <label for="image-upload" class="form-label">Insira a imagem:</label>
+          <input type="file" class="form-control" id="image-upload" name="image-upload" accept="image/*">
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Insira o valor:</label>
+          <input type="number" class="form-control" id="price" name="price" placeholder="R$ __,__">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Descreva seu produto:</label>
+          <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+      </form>
+    </div>
   </main>
 
   <footer>
@@ -68,6 +81,6 @@
     </div>
     </div>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+    </html>
