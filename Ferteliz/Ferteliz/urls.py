@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('cadastroCliente/', views.cadastroCliente, name='cadastroCliente'),
-    path('login/', views.login, name='login'),
+    path('login/', views.user_login, name='login'),
     path('cadastroMenu', views.cadastroMenu, name='cadastroMenu'),
     path('cadastroVendedor', views.cadastroVendedor, name='cadastroVendedor'),
     path('carrinho/', views.carrinho, name='carrinho'),

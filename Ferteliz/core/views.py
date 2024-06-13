@@ -22,7 +22,7 @@ def cadastroCliente(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return HttpResponseRedirect('home')
+            return HttpResponseRedirect('../homeCliente')
     else:
         form = UserForm()
 
@@ -36,7 +36,7 @@ def user_login(request):
         user = authenticate(request, username=cpf, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('homeCliente')
+            return HttpResponseRedirect('../homeCliente')
         else:
             return render(request, 'login.html', {'error': 'Credenciais inválidas'})
     return render(request, 'login.html')
