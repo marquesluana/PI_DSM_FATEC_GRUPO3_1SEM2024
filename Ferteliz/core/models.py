@@ -1,10 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import EmailValidator
 
 class UserModel(AbstractUser):
     username = models.CharField(max_length=50, unique=True, null=False, blank=False)
+    tipo = models.CharField(max_length=8, default='cliente')
     #date_of_birth = models.DateField(null=True, blank=True)
-    telefone = models.TextField(max_length=15, blank=True)
+    email = models.EmailField(unique=True, validators=[EmailValidator(message="Por favor, insira um endereço de email válido.")])
+    telefone = models.CharField(max_length=15, blank=True)
     cpf = models.CharField('CPF', max_length=30, default='')
     cep = models.CharField('CEP', max_length=8, default='')
     endereco = models.CharField(max_length=40, blank=True)
@@ -14,11 +17,12 @@ class UserModel(AbstractUser):
     def __str__(self):
         return self.username
 
-    class Meta:
+    '''class Meta:
         # using = 'secondary' para usar o mongo
         verbose_name = 'UserModel'
         verbose_name_plural = 'UsersModels'
         db_table = 'Users' # <= Define o nome da coleção no MongoDB
+    '''
 
 class ProductModel(models.Model):
     name = models.CharField(max_length=150)
@@ -29,10 +33,11 @@ class ProductModel(models.Model):
     def __str__(self):
         return self.name
     
-    class Meta:
-        # using = 'secondary' para usar o mongo
+    '''class Meta:
+        using = 'secondary' para usar o mongo
         verbose_name = 'ProductModel'
         verbose_name_plural = 'ProductsModel'
+    '''
     
 class VendaModel(models.Model):
     dataVenda = models.CharField(max_length=8)
@@ -48,8 +53,8 @@ class VendaModel(models.Model):
     def __str__(self):
         return self.name
     
-    class Meta:
+    '''class Meta:
         # using = 'secondary' para usar o mongo
         verbose_name = 'VendaModel'
         verbose_name_plural = 'VendaModel'
-        
+    '''

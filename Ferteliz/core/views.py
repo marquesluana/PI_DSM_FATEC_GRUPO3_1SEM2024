@@ -1,13 +1,14 @@
-
-from django.shortcuts import render
 from django.shortcuts import render, HttpResponseRedirect
 from .services.repository.ProdutoRepository import ProductModel
 from django.http import JsonResponse
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import authenticate, login, login as auth_login
+from django.contrib.auth.decorators import login_required
 from Ferteliz import settings
 from core.models import ProductModel
-from .forms import UserForm, ProductForm
+from django.contrib.auth.models import User
+from .forms import UserForm, ProductForm, EditUserForm
 from django.http import HttpResponseRedirect
+from django.conf import settings
 
 # Create your views here.
 def home (request):
@@ -21,7 +22,7 @@ def cadastroCliente(request):
         form = UserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
+            login(request, user, backend='core.backends.CustomBackend')
             return HttpResponseRedirect('../homeCliente')
     else:
         form = UserForm()
@@ -33,16 +34,26 @@ def user_login(request):
     if request.method == 'POST':
         cpf = request.POST['cpf']
         password = request.POST['password']
-        user = authenticate(request, username=cpf, password=password)
+        user = authenticate(request, cpf=cpf, password=password)
         if user is not None:
-            login(request, user)
+            login(request, user, backend='core.backends.CustomBackend')
             return HttpResponseRedirect('../homeCliente')
         else:
             return render(request, 'login.html', {'error': 'Credenciais inválidas'})
     return render(request, 'login.html')
 
 def cadastroVendedor(request):
-    return render(request, 'cadastroVendedor.html') 
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user, backend='core.backends.CustomBackend')
+            return HttpResponseRedirect('../homeVendedor')
+    else:
+        form = UserForm()
+
+    contexto = {'form': form}
+    return render(request, 'cadastroVendedor.html', contexto) 
 
 def carrinho(request):
     return render(request, 'carrinho.html') 
@@ -52,7 +63,9 @@ def cadastroProdutos(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
-            product = {
+            product=form.save()
+            return HttpResponseRedirect('../cadastroProdutos')
+            '''product = {
                 'name': data.get('name'),
                 'description': data.get('description'),
                 'price': float(data.get('price'))
@@ -62,6 +75,7 @@ def cadastroProdutos(request):
             return JsonResponse({'status': 'Produto cadastrado com sucesso!'})
         else:
             return JsonResponse({'status': 'Form não é válido.'}, status=400)
+            '''
     else:
         form = ProductForm()
     return render(request, 'cadastroProdutos.html', {'form': form}) 
@@ -92,3 +106,18 @@ def list_products (request):
         })
     return JsonResponse(data, safe=False)
     #return render(request, 'list_products.html')
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditUserForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            if request.user.tipo == 'cliente':
+                return HttpResponseRedirect('../profileCliente')
+            elif request.user.tipo == 'vendedor':
+                return HttpResponseRedirect('../profileVendedor')
+    else:
+        form = EditUserForm(instance=request.user)
+    
+    return render(request, 'editPerfil.html', {'form': form})

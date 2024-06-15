@@ -49,9 +49,14 @@
                     <span class="input-text"> Nome: </span>
                     {{ form.username }}
                 </div>
+                <input type="hidden" name="tipo" value="cliente">
                 <div class="mb-3" style="font-size: 20px;">
                     <span class="input-text"> CPF: </span>
                     {{ form.cpf }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                  <span class="input-text"> E-mail: </span>
+                  {{ form.email }}
                 </div>
                 <div class="mb-3" style="font-size: 20px;">
                   <span class="input-text"> Telefone: </span>

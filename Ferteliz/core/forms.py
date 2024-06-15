@@ -1,9 +1,10 @@
 from django import forms
 from django.core.exceptions import ValidationError
-
+from django.contrib.auth.models import User
 from .services.connection import get_db
 from .models import ProductModel, UserModel, VendaModel
 import re
+
 
 def validate_cpf(value):
     if len(value) != 11 or not value.isdigit():
@@ -46,12 +47,16 @@ class ProductForm(forms.ModelForm):
         # Imprimir os dados no console
         print(f'Name: {name}, Description: {description}, Price: {price}')
 
-        # Inserir dados no MongoDB
+        '''# Inserir dados no MongoDB
         product = get_db().products.insert_one({
             'name': name,
             'description': description,
             'price': float(price)
-        })      
+        })
+        '''
+        product=super(ProductForm, self).save(commit=False)
+        if commit:
+            product.save()
         return product
 
 
@@ -63,10 +68,12 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = UserModel
-        fields = ['username', 'cpf', 'telefone', 'cep', 'endereco', 'numero', 'password']
+        fields = ['username', 'tipo', 'cpf', 'email', 'telefone', 'cep', 'endereco', 'numero', 'password']
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome'}),
+            'tipo': forms.HiddenInput(),
             'cpf': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'CPF'}),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'E-mail'}),
             'telefone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Telefone'}),
             'cep': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'CEP'}),
             'endereco': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Endereço'}),
@@ -77,16 +84,22 @@ class UserForm(forms.ModelForm):
         nome = self.cleaned_data['nome']
         return nome.upper().strip()
 
+    def clean_cpf(self):
+        cpf = self.cleaned_data['cpf']
+        validate_cpf(cpf)
+        return cpf
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if UserModel.objects.filter(email=email).exists():
+            raise forms.ValidationError("Este email já está em uso. Por favor, escolha um email diferente.")
+        return email.lower()
+    
     def clean_telefone(self):
         telefone = self.cleaned_data['telefone']
         if re.match(r'^\(\d{2}\) \d{4,5}-\d{4}$', telefone):
             return telefone
         raise ValidationError('Telefone precisa estar no formato (__)____-____)')
-
-    def clean_cpf(self):
-        cpf = self.cleaned_data['cpf']
-        validate_cpf(cpf)
-        return cpf
     
     def clean_endereco(self):
         endereco = self.cleaned_data['endereco']
@@ -105,3 +118,38 @@ class UserForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = UserModel
+        fields = ['username', 'cpf', 'email', 'telefone', 'cep', 'endereco', 'numero']
+
+    def clean_nome(self):
+        nome = self.cleaned_data['nome']
+        return nome.upper().strip()
+
+    def clean_cpf(self):
+        cpf = self.cleaned_data['cpf']
+        validate_cpf(cpf)
+        return cpf
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        return email.lower()
+    
+    def clean_telefone(self):
+        telefone = self.cleaned_data['telefone']
+        if re.match(r'^\(\d{2}\) \d{4,5}-\d{4}$', telefone):
+            return telefone
+        raise ValidationError('Telefone precisa estar no formato (__)____-____)')
+    
+    def clean_endereco(self):
+        endereco = self.cleaned_data['endereco']
+        return endereco.upper()
+    
+    def cep(self):
+        cep = self.cleaned_data['cep']
+        if re.fullmatch(r'\d{8}', cep):
+            return cep
+        else:
+            raise ValidationError('CEP inválido.')

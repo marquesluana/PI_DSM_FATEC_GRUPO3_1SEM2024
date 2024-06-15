@@ -19,10 +19,10 @@ from django.urls import path
 from core import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', views.home, name='home'),
-    path('cadastroCliente/', views.cadastroCliente, name='cadastroCliente'),
-    path('login/', views.user_login, name='login'),
+    path('cadastroCliente', views.cadastroCliente, name='cadastroCliente'),
+    path('login', views.user_login, name='login'),
     path('cadastroMenu', views.cadastroMenu, name='cadastroMenu'),
     path('cadastroVendedor', views.cadastroVendedor, name='cadastroVendedor'),
     path('carrinho/', views.carrinho, name='carrinho'),
@@ -31,5 +31,6 @@ urlpatterns = [
     path('homeVendedor', views.homeVendedor, name='homeVendedor'),    
     path('profileVendedor', views.profileVendedor, name='profileVendedor'), 
     path('profileCliente', views.profileCliente, name='profileCliente'),
-    path('compras', views.compras, name='compras')
+    path('compras', views.compras, name='compras'),
+    path('editPerfil', views.edit_profile, name='editPerfil')
 ]

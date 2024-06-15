@@ -42,11 +42,12 @@
               <img src="{% static 'imgs/profile-picture_template.png' %}" alt="Foto do Vendedor">
           </div>
           <div class="profile-details">
-              <h1>Nome do Cliente</h1>
-              <p>Email: vendedor@exemplo.com</p>
-              <p>Telefone: (11) 1234-5678</p>
-              <p>Endereço: Rua Exemplo, 123, São Paulo, SP</p>
-              <button>Editar Perfil</button>
+              <h1>{{ user.username }}</h1>
+              <p>CPF: {{ user.cpf }}</p>
+              <p>E-mail: {{ user.email }}</p>
+              <p>Telefone: {{ user.telefone }}</p>
+              <p>Endereço: {{ user.endereco }}, nº {{ user.numero }} - CEP {{ user.cep }}</p>
+              <a href="{% url 'editPerfil' %}"><button>Editar Perfil</button></a>
               <a href="{% url 'home' %}"><button>Sair</button></a>
           </div>
       </section>

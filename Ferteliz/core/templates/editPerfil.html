@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles/profileCliente.css' %}"> 
+    <title>Editar perfil - Ferteliz</title>
+</head>
+<body>
+    <!-- Navbar do projeto -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary page-nav">
+    <div class="container-fluid page-navbar">
+        <a class="navbar-brand" href="#"><img src="{% static 'imgs/logo.png' %}" alt="Logo Ferteliz" class="brand-image" ></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+            <li class="nav-item right-border">
+                <a class="nav-link" aria-current="page" href="{% url 'homeCliente' %}">Início</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="mailto:ferteliz.contato@gmail.com">Fale conosco</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" style="margin-left: 680px;" href="{% url 'profileCliente' %}">Área do usuário</a>
+                <a class="navbar-brand-vector" href="{% url 'profileCliente' %}">  <img src="{% static 'imgs/vector1.png' %}" alt="Logo Ferteliz" class="brand-image-vector" ></a>        
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <!-- Fim da navbar do projeto -->
+
+    <main>
+        <section class="profile">
+            <div class="profile-picture">
+                <img src="{% static 'imgs/profile-picture_template.png' %}" alt="Foto do Vendedor">
+            </div>
+            <div class="profile-details">
+                <h1>Editar Perfil:</h1>
+                <form method="post">
+                {% csrf_token %}
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> Nome: </span>
+                    {{ form.username }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> CPF: </span>
+                    {{ form.cpf }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> E-mail: </span>
+                    {{ form.email }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> Telefone: </span>
+                    {{ form.telefone }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> Endereço: </span>
+                    {{ form.endereco }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                    <span class="input-text"> Número: </span>
+                    {{ form.numero }}
+                </div>
+                <div class="mb-3" style="font-size: 20px;">
+                  <span class="input-text"> CEP: </span>
+                  {{ form.cep }}
+                </div>
+                <button type="submit">Salvar</button>
+                <a href="{% url 'profileCliente' %}"><button>Cancelar</button></a>
+                </form>
+                {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <strong>{{ error|escape }}</strong><br>
+                    {% endfor %}
+                {% endfor %}
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class=" footer-container">
+            <span class="copyright">© 2024 Ferteliz. Todos os direitos reservados.</span>
+        
+            <div class="footer-contact_container">
+            <span>Telefone: (19) 9986-4556 </span>
+            <span>Email: Ferteliz.contato@gmail.com</span>
+            </div>
+            
+            <div class="footer-icon_container">
+            <img src="{% static 'imgs/insta-icon.svg' %}" alt="instagram">
+            <img src="{% static 'imgs/face-icon.svg' %}" alt="facebook">
+            <img src="{% static 'imgs/linkedin-icon.svg' %}" alt="linkedin">
+            </div>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
