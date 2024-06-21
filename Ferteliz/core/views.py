@@ -1,3 +1,4 @@
+from bson import ObjectId
 from django.shortcuts import render, HttpResponseRedirect
 from .services.repository.ProdutoRepository import ProductModel
 from django.http import JsonResponse
@@ -8,7 +9,8 @@ from core.models import ProductModel
 from django.contrib.auth.models import User
 from .forms import UserForm, ProductForm, EditUserForm
 from django.http import HttpResponseRedirect
-from django.conf import settings
+
+
 
 # Create your views here.
 def home (request):
@@ -63,22 +65,51 @@ def cadastroProdutos(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
-            product=form.save()
-            return HttpResponseRedirect('../cadastroProdutos')
-            '''product = {
+            product = {
                 'name': data.get('name'),
                 'description': data.get('description'),
                 'price': float(data.get('price'))
             }
-            db = settings.db
-            db.products.insert_one(product)
+            db = settings.get_mongo_client()
+            db.produtos.insert_one(product)
             return JsonResponse({'status': 'Produto cadastrado com sucesso!'})
         else:
             return JsonResponse({'status': 'Form não é válido.'}, status=400)
-            '''
+            
     else:
         form = ProductForm()
     return render(request, 'cadastroProdutos.html', {'form': form}) 
+
+def deletarProduto(request, produto_id):    
+    db = settings.get_mongo_client()
+    db.produtos.delete_one({'_id': ObjectId(produto_id)})
+    return JsonResponse({'status': 'Produto deletado com sucesso!'})
+
+def editarProdutos(request, produto_id):
+    db = settings.get_mongo_client()
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.cleaned_data
+            # Atualiza o produto no MongoDB
+            db.produtos.update_one({'_id': ObjectId(produto_id)}, {'$set': {
+                'name': data.get('name'),
+                'description': data.get('description'),
+                'price': float(data.get('price'))
+            }})
+            return JsonResponse({'status': 'Produto atualizado com sucesso!'})
+        else:
+            return JsonResponse({'status': 'Form não é válido.'}, status=400)
+            
+    else:
+        produto = db.produtos.find_one({'_id': ObjectId(produto_id)})    
+        if produto:
+            form = ProductForm(initial={
+                'name': produto.get('name'),
+                'description': produto.get('description'),
+                'price': str(produto.get('price', ''))
+            })       
+    return render(request, 'editarProdutos.html', {'form': form}) 
 
 def homeCliente(request):
     return render(request, 'homeCliente.html') 
@@ -96,16 +127,17 @@ def compras (request):
     return render(request, 'compras.html')
 
 def list_products (request):
-    products = ProductModel.objects.all()
+    products = list(settings.get_mongo_client().produtos.find())
     data = []
     for product in products:
         data.append({
-            'name': product.name,
-            'description': product.description,
-            'price': str(product.price)
+            'id' : str(product.get('_id', '')),
+            'name': product.get('name', ''),
+            'description': product.get('description', ''),
+            'price': str(product.get('price', ''))
         })
-    return JsonResponse(data, safe=False)
-    #return render(request, 'list_products.html')
+    #return JsonResponse(data, safe=False)
+    return render(request, 'list_products.html', {'products': data})
 
 @login_required
 def edit_profile(request):

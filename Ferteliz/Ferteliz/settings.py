@@ -110,7 +110,16 @@ MONGODB_SETTINGS = {
 
 # Inicializa a conexão com o MongoDB e armazena na configuração do Django
 
-
+def get_mongo_client():
+    mongo_settings = MONGODB_SETTINGS
+    client = pymongo.MongoClient(
+        host=mongo_settings['host'],
+        port=mongo_settings['port'],
+        username=mongo_settings['username'],
+        password=mongo_settings['password'],
+        authSource=mongo_settings['authentication_source']
+    )
+    return client[MONGODB_SETTINGS['db']]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
