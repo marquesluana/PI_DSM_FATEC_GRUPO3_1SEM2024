@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles/cadastroProdutos.css' %}"> 
+    <title>Ferteliz</title>
+</head>
+<body>
+  <!-- Navbar do projeto -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary page-nav">
+    <div class="container-fluid page-navbar">
+      <a class="navbar-brand" href="#"><img src="{% static 'imgs/logo.png' %}" alt="Logo Ferteliz" class="brand-image" ></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item right-border">
+            <a class="nav-link" aria-current="page" href="{% url 'homeVendedor' %}">Início</a>
+          </li>
+          <li class="nav-item right-border left-margin">
+            <a class="nav-link" href="mailto:ferteliz.contato@gmail.com">Fale conosco</a>
+          </li>
+          
+          <li class="nav-item left-margin">
+            <a class="nav-link" href="{% url 'cadastroProdutos' %}">Cadastrar Produtos</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" style="margin-left: 680px;" href="{% url 'profileVendedor' %}">Área do usuário</a>
+            <a class="navbar-brand-vector" href="{% url 'profileVendedor' %}">  <img src="{% static 'imgs/vector1.png' %}" alt="Logo Ferteliz" class="brand-image-vector" ></a>        
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Fim da navbar do projeto -->
+
+  <main>
+    <div class="container">
+      <h1>Editar seu produto</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="id_name" class="form-label">Nome:</label>
+          <input type="text" id="id_name" name="name" class="form-control" value="{{ form.name.value }}">
+        </div>
+        <div class="mb-3">
+          <label for="id_description" class="form-label">Descrição:</label>
+          <textarea id="id_description" name="description" class="form-control">{{ form.description.value }}</textarea>
+        </div>
+        <div class="mb-3">
+          <label for="id_price" class="form-label">Preço:</label>
+          <input type="number" id="id_price" name="price" class="form-control" value="{{form.price.value }}">
+        </div>
+        <div class="mb-3">
+          <label for="id_image_upload" class="form-label">Insira a imagem:</label>
+          <input type="file" class="form-control" id="id_image_upload" name="image_upload" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-success">Salvar Alterações</button>
+      </form>
+      {% if form.errors %}
+        {% for field in form %}
+          {% for error in field.errors %}
+            <strong>{{ error|escape }}</strong><br>
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </main>
+
+  <footer>
+    <div class=" footer-container">
+    <span class="copyright">© 2024 Ferteliz. Todos os direitos reservados.</span>
+    
+    <div class="footer-contact_container">
+    <span>Telefone: (19) 9986-4556 </span>
+    <span>Email: Ferteliz.contato@gmail.com</span>
+    </div>
+    
+    <div class="footer-icon_container">
+    <img src="{% static 'imgs/insta-icon.svg' %}" alt="instagram">
+    <img src="{% static 'imgs/face-icon.svg' %}" alt="facebook">
+    <img src="{% static 'imgs/linkedin-icon.svg' %}" alt="linkedin">
+    </div>
+    </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+    </html>
