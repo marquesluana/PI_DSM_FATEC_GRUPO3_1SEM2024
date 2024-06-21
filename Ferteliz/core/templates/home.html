@@ -26,8 +26,12 @@
             <a class="nav-link" href="mailto:ferteliz.contato@gmail.com">Fale conosco</a>
           </li>
           
-          <li class="nav-item ">
+          <li class="nav-item right-border">
             <a class="nav-link" href="#SobreNos">Sobre nós</a>
+          </li>
+
+          <li class="nav-item navbar-item">
+            <a class="nav-link" href="{% url 'list_products' %}">Lista de Produtos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="margin-left: 1000px;"  href="{% url 'login' %}">Login</a>
@@ -51,7 +55,7 @@
       
       <div class="main-container_right">
      <div class="container-xxl right_container">
-      <img class="container_right-image" src="{% static 'imgs/Imagem-da-home.png' %}" alt="" height="499px" width="605px">
+      <img class="container_right-image" src="{% static 'imgs/Imagem-da-home.png' %}" alt="" >
     </div>
       </div>
     </div>
